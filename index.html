@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jay's Apparel - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            DEFAULT: '#db2777',
+            100: '#fce7f3',
+            200: '#fbcfe8',
+            300: '#f8a1e3',
+            400: '#f472b6',
+            500: '#ec4899',
+            600: '#db2777',
+            700: '#a8155a',
+            800: '#861243',
+            900: '#7f1d1d',
+          }
+        }
+      }
+    }
+  }
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="text-gray-800">
 
@@ -43,7 +65,7 @@
         <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center bg-gray-50 border-t">
-                <a href="index.html" class="block py-2 text-base font-medium text-pink-600 border-b border-pink-600">Home</a>
+                <a href="index.html" class="block py-2 text-base font-medium text-pink-600 border-b border-pink-600 active-link">Home</a>
                 <a href="products.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Products</a>
                 <a href="contact.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Contact</a>
             </div>
@@ -64,7 +86,7 @@
                         Welcome to Jay's Apparel
                     </h2>
                     <!-- Placeholder Image - Represents a hero shot of clothing -->
-                    <img src="banner.jpg"
+                    <img src="images/banner.jpg"
                          alt="Hero image of sustainable clothing."
                          class="w-full rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.01] mb-12"
                          onerror="this.onerror=null; this.src='https://placehold.co/1200x500/c7d2fe/4f46e5?text=Loading+Image+Failed'"
@@ -88,7 +110,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm">
-            <p>&copy; 2024 Jay's Apparel. All Rights Reserved. | Consciously Crafted.</p>
+            <p>&copy; 2026 Jay's Apparel. All Rights Reserved. | Consciously Crafted.</p>
         </div>
     </footer>
 
