@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay's Apparel - Products</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation (Fixed at Top) -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Business Name -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-extrabold text-brand-primary tracking-tight">
+                        JAY'S <span class="text-gray-900">Apparel</span>
+                    </h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                    <a href="index.html" class="nav-link'>Home</a>
+                    <!-- Products is ACTIVE -->
+                    <a href="products.html" class="nav-link active-link'>Products</a>
+                    <a href="contact.html" class="nav-link'>Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary rounded-lg p-2 transition" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center bg-gray-50 border-t">
+                <a href="index.html" class="block py-2 text-base font-medium text-pink-600 border-b border-pink-600">Home</a>
+                <a href="products.html" class="block py-2 text-base font-medium text-brand-600 border-b border-brand-600">Products</a>
+                <a href="contact.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- PRODUCTS PAGE CONTENT -->
+        <section id="products-page" class="page-content">
+            <div class="py-12">
+                <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-12">
+                    Our Core Essentials
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+
+                    <!-- Product 1: The Essential Tee -->
+                    <div class="product-card">
+                        <img src="tee.jpg"
+                             alt="Product: Essential Tee"
+                             class="w-full h-64 object-cover rounded-t-xl"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/bbf7d0/16a34a?text=Loading+Image+Failed'"
+                        />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">The Essential Tee</h3>
+                            <p class="text-brand-primary font-bold text-xl mb-4">₱99.00</p>
+                            <p class="text-gray-600 mb-4">
+                                Crafted from 100% organic Pima cotton, this tee offers a luxurious feel and a perfect, relaxed fit. Available in five earth tones.
+                            </p>
+                            <div class="product-actions mt-auto">
+                                <button class="product-button"
+                                        onclick="showDetails('tee')">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: The Voyager Denim -->
+                    <div class="product-card">
+                        <img src="jeans.jpg"
+                             alt="Product: Voyager Denim"
+                             class="w-full h-64 object-cover rounded-t-xl"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/a5f3fc/06b6d4?text=Loading+Image+Failed'"
+                        />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">The Voyager Denim</h3>
+                            <p class="text-brand-primary font-bold text-xl mb-4">₱199.00</p>
+                            <p class="text-gray-600 mb-4">
+                                Our flagship denim, made with 40% recycled cotton. Features a relaxed straight cut for all-day comfort and durability.
+                            </p>
+                            <div class="product-actions mt-auto">
+                                <button class="product-button"
+                                        onclick="showDetails('denim')">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: The Cloud Knit Sweater -->
+                    <div class="product-card">
+                        <img src="knit.jpg"
+                             alt="Product: Cloud Knit Sweater"
+                             class="w-full h-64 object-cover rounded-t-xl"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0e7ff/4338ca?text=Loading+Image+Failed'"
+                        />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">The Cloud Knit Sweater</h3>
+                            <p class="text-brand-primary font-bold text-xl mb-4">₱399.00</p>
+                            <p class="text-gray-600 mb-4">
+                                Experience the ultimate softness. This ethically sourced merino wool blend is light, warm, and perfect for layering.
+                            </p>
+                            <div class="product-actions mt-auto">
+                                <button class="product-button"
+                                        onclick="showDetails('sweater')">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-16 p-6 bg-brand-light rounded-xl">
+                    <h3 class="text-2xl font-bold text-brand-primary mb-3">Commitment to Sustainability</h3>
+                    <p class="text-brand-700">
+                        1% of all profits are donated to environmental protection organizations. Shop with purpose.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm">
+            <p>&copy; 2024 Jay's Apparel. All Rights Reserved. | Consciously Crafted.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL STRUCTURE -->
+    <div id="product-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300"
+         onclick="closeDetails(event)">
+        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full mx-auto overflow-hidden transform transition-all sm:my-8 sm:align-middle"
+             onclick="event.stopPropagation()">
+            <div class="p-6 md:p-8 grid md:grid-cols-2 gap-6">
+
+                <!-- Image Panel -->
+                <div class="w-full">
+                    <img id="modal-img" src="" alt="Product Image" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+
+                <!-- Details Panel -->
+                <div>
+                    <h3 id="modal-title" class="text-3xl font-extrabold text-gray-900 mb-2"></h3>
+                    <p id="modal-price" class="text-3xl font-bold text-brand-primary mb-6"></p>
+
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Product Description</h4>
+                    <p id="modal-desc" class="text-gray-600 mb-6 leading-relaxed"></p>
+
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Key Features</h4>
+                    <ul class="list-none space-y-2 text-gray-700 mb-8">
+                        <li id="modal-feature-1" class="flex items-center">
+                            <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>100% Sustainable Material</span>
+                        </li>
+                        <li id="modal-feature-2" class="flex items-center">
+                            <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Ethically Sourced</span>
+                        </li>
+                        <li id="modal-feature-3" class="flex items-center">
+                            <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Free Returns</span>
+                        </li>
+                    </ul>
+
+                    <!-- Cart Notification -->
+                    <div id="cart-notification" class="hidden p-3 mb-4 text-sm font-medium text-green-800 bg-green-100 rounded-lg border border-green-200" role="alert">
+                        <span class="font-bold">Success!</span> Item added to your cart.
+                    </div>
+
+                    <button id="add-to-cart-btn"
+                            onclick="addToCart(event)"
+                            class="w-full px-4 py-3 text-lg font-medium text-white bg-brand-primary rounded-lg shadow-md hover:bg-brand-primary-dark focus:outline-none focus:ring-4 focus:ring-brand-primary-light focus:ring-opacity-50 transition duration-150 transform hover:scale-[1.005]">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Close Button -->
+        <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
+                onclick="closeDetails()">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        // Simple script to toggle the mobile menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // --- MODAL LOGIC ---
+        const modal = document.getElementById('product-modal');
+        let currentProductTitle = ''; // Stores the title of the product currently in the modal
+
+        // Define product data (simulated backend data)
+        const productData = {
+            'tee': {
+                title: 'The Essential Tee',
+                price: '₱99.00',
+                desc: 'Crafted from 100% organic Pima cotton, this tee offers a luxurious feel and a perfect, relaxed fit. It is designed for longevity and minimal environmental impact, making it a cornerstone of your conscious wardrobe.',
+                imgSrc: 'tee.jpg',
+                features: ['100% Organic Pima Cotton', 'Relaxed Fit', 'Five Earth Tones Available']
+            },
+            'denim': {
+                title: 'The Voyager Denim',
+                price: '₱199.00',
+                desc: 'Our flagship denim, made with 40% recycled cotton. Features a relaxed straight cut for all-day comfort and superior durability. It uses minimal water during production and is dyed using sustainable processes.',
+                imgSrc: 'jeans.jpg',
+                features: ['40% Recycled Cotton Blend', 'Relaxed Straight Cut', 'Low Water Dye Process']
+            },
+            'sweater': {
+                title: 'The Cloud Knit Sweater',
+                price: '₱399.00',
+                desc: 'Experience the ultimate softness. This ethically sourced merino wool blend is light, warm, and perfect for layering. The cloud knit texture provides maximum comfort and breathability for year-round wear.',
+                imgSrc: 'knit.jpg',
+                features: ['Ethically Sourced Merino Wool', 'Lightweight & Breathable', 'Perfect for Layering']
+            }
+        };
+
+        /** Populates and displays the modal with specific product details.
+         * @param {string} productId - The key for the product data ('tee', 'denim', 'sweater').
+         */
+        function showDetails(productId) {
+            const product = productData[productId];
+            if (!product) return;
+
+            // Populate Modal Content
+            document.getElementById('modal-img').src = product.imgSrc;
+            document.getElementById('modal-img').alt = product.title + ' Image';
+            document.getElementById('modal-title').textContent = product.title;
+            currentProductTitle = product.title; // Store the title for the cart function
+            document.getElementById('modal-price').textContent = product.price;
+            document.getElementById('modal-desc').textContent = product.desc;
+
+            // Populate Features
+            for (let i = 0; i < 3; i++) {
+                const featureElement = document.getElementById(`modal-feature-${i + 1}`);
+                if (featureElement) {
+                     // Keep the SVG icon, just replace the text node
+                    const icon = featureElement.querySelector('svg');
+                    featureElement.textContent = product.features[i] || ''; // Set text
+                    if (icon) {
+                        featureElement.prepend(icon); // Put the icon back
+                    }
+                }
+            }
+
+            // Ensure the notification is hidden when opening a new product
+            document.getElementById('cart-notification').classList.add('hidden');
+            const cartButton = document.getElementById('add-to-cart-btn');
+            cartButton.disabled = false;
+            cartButton.textContent = 'Add to Cart';
+            cartButton.classList.add('bg-brand-primary', 'hover:bg-brand-primary-dark');
+            cartButton.classList.remove('bg-green-600');
+
+            // Show the modal
+            modal.classList.remove('hidden');
+        }
+
+        /** Hides the product details modal. */
+        function closeDetails(event) {
+            // Check if click was on the backdrop (not on the modal content)
+            if (event.target === event.currentTarget) {
+                modal.classList.add('hidden');
+            }
+        }
+
+        /** Handles the "Add to Cart" action and shows a success notification. */
+        function addToCart(event) {
+            // Stop click from bubbling up and potentially closing the modal (since the backdrop uses closeDetails)
+            event.stopPropagation();
+
+            const notification = document.getElementById('cart-notification');
+            const button = document.getElementById('add-to-cart-btn');
+
+            // 1. Display success message with the current product title
+            notification.innerHTML = `<span class="font-bold">Success!</span> ${currentProductTitle} added to your cart.`;
+            notification.classList.remove('hidden');
+
+            // 2. Disable button temporarily and change styling
+            button.disabled = true;
+            button.textContent = 'Added!';
+            button.classList.remove('bg-brand-primary', 'hover:bg-brand-primary-dark');
+            button.classList.add('bg-green-600');
+
+            // 3. Reset state after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('hidden');
+                button.disabled = false;
+                button.textContent = 'Add to Cart';
+                button.classList.add('bg-brand-primary', 'hover:bg-brand-primary-dark');
+                button.classList.remove('bg-green-600');
+            }, 3000);
+        }
+
+        // Close modal on escape key press
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeDetails(event);
+            }
+        });
+    </script>
+</body>
+</html>

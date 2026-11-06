@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay's Apparel - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation (Fixed at Top) -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Business Name -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-extrabold text-brand-primary tracking-tight">
+                        JAY'S <span class="text-gray-900">Apparel</span>
+                    </h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                    <!-- Home is ACTIVE -->
+                    <a href="index.html" class="nav-link active-link">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 rounded-lg p-2 transition" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center bg-gray-50 border-t">
+                <a href="index.html" class="block py-2 text-base font-medium text-pink-600 border-b border-pink-600">Home</a>
+                <a href="products.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Products</a>
+                <a href="contact.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- HOME PAGE CONTENT -->
+        <section id="home-page" class="page-content">
+            <div class="text-center py-16 sm:py-24 lg:py-32 bg-white rounded-xl shadow-lg mt-8">
+                <div class="mx-auto max-w-4xl">
+                    <!-- Logo/Tagline -->
+                    <p class="text-xl font-semibold text-brand-primary mb-4">
+                        Consciously Crafted. Timelessly Designed.
+                    </p>
+                    <h2 class="text-5xl sm:text-7xl font-extrabold text-gray-900 tracking-tight mb-8">
+                        Welcome to Jay's Apparel
+                    </h2>
+                    <!-- Placeholder Image - Represents a hero shot of clothing -->
+                    <img src="banner.jpg"
+                         alt="Hero image of sustainable clothing."
+                         class="w-full rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.01] mb-12"
+                         onerror="this.onerror=null; this.src='https://placehold.co/1200x500/c7d2fe/4f46e5?text=Loading+Image+Failed'"
+                    />
+
+                    <!-- Welcome Message -->
+                    <p class="text-lg text-gray-600 leading-relaxed mb-12">
+                        We believe fashion should feel good and do good. Jay's Apparel offers premium, sustainable essentials designed with recycled and organic materials. Discover elevated basics that are built to last, reducing your footprint without compromising on style. Explore our collection and start building your conscious wardrobe today.
+                    </p>
+
+                    <!-- Call to Action -->
+                    <a href="products.html"
+                       class="inline-block px-8 py-3 text-lg font-medium text-white bg-brand-primary rounded-full shadow-lg hover:bg-brand-primary-dark focus:outline-none focus:ring-4 focus:ring-brand-primary-light focus:ring-opacity-50 transition duration-150 transform hover:scale-105">
+                        Shop Our Sustainable Collection &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm">
+            <p>&copy; 2024 Jay's Apparel. All Rights Reserved. | Consciously Crafted.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to toggle the mobile menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

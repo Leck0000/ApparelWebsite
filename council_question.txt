@@ -1,0 +1,13 @@
+Jay's Apparel static e-commerce website (3 pages: Home, Products, Contact) received comprehensive UI/UX and Apple Design improvements. The original had basic Tailwind styling with hardcoded colors, generic product cards, and minimal interactivity. The improvements included:
+
+1. Design token system (CSS variables for colors, spacing, shadows)
+2. Apple Design principles: response/latency (:active feedback), interruptibility (from current value), springs (critically damped), materials (backdrop-filter), reduced motion/transparency media queries, optical sizing typography
+3. Consistency: identical nav, mobile menu, footer across all pages
+4. 60-30-10 color rule: 60% neutral gray, 30% brand pink, 10% accent
+5. Accessibility: focus-visible on all elements, prefers-reduced-motion and prefers-reduced-transparency
+6. Responsive: mobile-first grid (1→3 columns), fixed header, max-width 1280px
+7. Typography: Inter font, negative tracking on display, comfortable leading on body
+
+The website targets general consumers interested in sustainable fashion. No build step required; all interactivity is client-side.
+
+QUESTION FOR COUNCIL: Given these improvements, should they be retained as-is, modified, or reverted? What are the highest-confidence signals and where are the genuine tradeoffs? The site launches soon and needs to balance visual appeal, accessibility, performance, and maintainability.

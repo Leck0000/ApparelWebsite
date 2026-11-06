@@ -1,0 +1,434 @@
+/* --- Design Tokens --- */
+/* Color palette inspired by E-commerce Luxury aesthetic */
+:root {
+  --brand-primary: #db2777;    /* Main brand color (pink-600) */
+  --brand-primary-dark: #a8155a; /* Hover/active state */
+  --brand-primary-light: #fce7f3; /* Light background accent */
+  --gray-50: #fdf2f2;          /* Lightest gray */
+  --gray-100: #fee2f2;         /* Light gray */
+  --gray-200: #fbcfe8;         /* Medium-light */
+  --gray-300: #f8a1e3;         /* Medium */
+  --gray-400: #f472b6;         /* Medium-dark */
+  --gray-500: #ec4899;         /* Accent muted */
+  --gray-600: #db2777;         /* Primary brand */
+  --gray-700: #be185d;         /* Darker */
+  --gray-800: #9d1748;         /* Dark */
+  --gray-900: #7f1d1d;         /* Darkest */
+  --success: #10b981;          /* Success green */
+  --warning: #f59e0b;          /* Warning amber */
+  --error: #ef4444;            /* Error red */
+  --apple-blue: #0a0a0f;       /* Apple dark overlay */
+}
+
+/* Base styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--gray-50);
+    color: var(--gray-800);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0s !important;
+        animation-duration: 0s !important;
+        animation-iteration-count: 1 !important;
+    }
+    .transition-fast { transition-duration: 150ms !important; }
+    .sheet { transition: opacity 150ms ease !important; transform: none !important; }
+    .toolbar { background: var(--gray-50); backdrop-filter: none; }
+}
+
+/* Base style for the content sections */
+.page-content {
+    padding-top: 5rem; /* Space for fixed header */
+    min-height: calc(100vh - 4rem); /* Ensure content fills viewport above footer */
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb {
+    background-color: var(--gray-300);
+    border-radius: 10px;
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 10px;
+}
+
+/* --- Navigation Styles --- */
+
+.nav-link {
+    cursor: pointer;
+    transition: color 0.2s, border-bottom 0.2s;
+    padding-bottom: 0.5rem; /* Space for the border */
+    position: relative;
+}
+
+/* Active state on pointer-down (Apple: feedback on press, not release) */
+.nav-link:active {
+    color: var(--brand-primary-dark);
+    transform: scale(0.98);
+    transition: color 0ms, transform 100ms ease-out;
+}
+
+/* Hover states use var(--brand-primary) */
+.nav-link:hover {
+    color: var(--brand-primary);
+}
+
+/* Active link underline */
+.nav-link.active-link {
+    color: var(--brand-primary);
+    border-bottom: 2px solid var(--brand-primary);
+}
+
+.nav-link.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--brand-primary);
+    transform: scaleX(1);
+    transition: transform 150ms ease;
+}
+
+/* Active link on pointer-down (Apple principle: respond on press) */
+.nav-link.active-link:active {
+    color: var(--brand-primary-dark);
+    &::after {
+        transform: scaleX(0.8);
+        transition: transform 0ms;
+    }
+}
+
+/* --- Product Card Styles --- */
+
+.product-card {
+    background-color: white;
+    border-radius: 0.75rem; /* Equivalent to rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-lg */
+    overflow: hidden;
+    transition: box-shadow 150ms ease, transform 150ms ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Apple: compositor-friendly - will-change for hover */
+    will-change: transform, box-shadow;
+}
+
+/* Apple: rubber-banding soft boundary on hover */
+.product-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Equivalent to hover:shadow-xl */
+    transform: translateY(-2px);
+    /* Rubber-banding: progressive resistance feel */
+}
+
+/* Image with optical sizing */
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 150ms ease-out;
+    /* Apple: will-change for animation */
+    will-change: transform;
+}
+
+/* Hover scale - spring-like ease-out */
+.product-card:hover img {
+    transform: scale(1.01);
+    transition: transform 150ms ease-out;
+}
+
+/* Product actions */
+.product-actions {
+    margin-top: auto;
+    padding: 1rem 0;
+}
+
+/* Product button - Apple-style: feedback on press */
+.product-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--brand-primary);
+    color: white;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: background-color 100ms ease-out, transform 100ms ease-out;
+    border: none;
+    cursor: pointer;
+    /* Apple: scale on press */
+    transform-origin: center;
+}
+
+/* Pointer-down feedback (Apple: respond on pointer-down) */
+.product-button:active {
+    background-color: var(--brand-primary-dark);
+    transform: scale(0.97);
+    transition: background-color 0ms, transform 100ms ease-out;
+}
+
+/* Focus-visible (accessibility) */
+.product-button:focus-visible {
+    outline: 2px solid var(--gray-200);
+    outline-offset: 2px;
+}
+
+/* --- Contact Form Styles --- */
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--gray-300);
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+    /* Apple: will-change for focus */
+    will-change: border-color, box-shadow;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px var(--gray-100);
+    /* Apple: slight scale on focus for emphasis */
+    transform: scale(1.005);
+    transition: transform 100ms ease-out;
+}
+
+.form-input::placeholder { color: var(--gray-400); }
+
+.form-input-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    margin-bottom: 0.25rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group .error-message {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--error);
+}
+
+#form-message {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: none;
+    /* Apple: material feel - use backdrop-filter level opacity */
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+#form-message.success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    display: block;
+}
+
+#form-message.error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--brand-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    border: none;
+    /* Apple: pointer-down feedback */
+    transition: background-color 100ms ease-out, transform 100ms ease-out;
+}
+
+.btn-primary:active {
+    background-color: var(--brand-primary-dark);
+    transform: scale(0.97);
+    transition: background-color 0ms, transform 100ms ease-out;
+}
+
+.btn-primary:focus-visible {
+    outline: 2px solid var(--gray-200);
+    outline-offset: 2px;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--gray-600);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    border: 1px solid var(--gray-300);
+    transition: all 150ms ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--gray-100);
+    color: var(--gray-800);
+}
+
+.btn-secondary:focus-visible {
+    outline: 2px solid var(--gray-200);
+    outline-offset: 2px;
+}
+
+/* --- Utility Classes --- */
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.mt-8 { margin-top: 2rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+.py-32 { padding-top: 8rem; padding-bottom: 8rem; }
+
+.text-5xl { font-size: 3rem; }
+.text-4xl { font-size: 2.25rem; }
+.text-3xl { font-size: 1.875rem; }
+
+.font-extrabold { font-weight: 800; }
+.font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
+.font-normal { font-weight: 400; }
+
+.text-gray-900 { color: var(--gray-900); }
+.text-gray-600 { color: var(--gray-600); }
+.text-gray-500 { color: var(--gray-500); }
+.text-gray-400 { color: var(--gray-400); }
+.text-gray-100 { color: var(--gray-100); }
+.text-white { color: white; }
+
+.bg-white { background-color: white; }
+.bg-gray-50 { background-color: var(--gray-50); }
+.bg-gray-100 { background-color: var(--gray-100); }
+.bg-gray-600 { background-color: var(--gray-600); }
+.bg-gray-900 { background-color: var(--gray-900); }
+.bg-brand-primary { background-color: var(--brand-primary); }
+.bg-brand-light { background-color: var(--brand-primary-light); }
+.bg-success { background-color: var(--success); }
+.bg-warning { background-color: var(--warning); }
+.bg-error { background-color: var(--error); }
+
+.text-brand-primary { color: var(--brand-primary); }
+.text-muted { color: var(--gray-500); }
+
+.rounded-xl { border-radius: 0.75rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.rounded-full { border-radius: 9999px; }
+
+.shadow-lg {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-xl {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.transition { transition: all 0.2s ease; }
+.duration-150 { transition-duration: 150ms; }
+.duration-300 { transition-duration: 300ms; }
+
+.transform { transform: translateY(-2px); }
+.hover\:scale-105:hover { transform: scale(1.05); }
+.hover\:translate-y-1:hover { transform: translateY(-1px); }
+
+/* Focus visible (accessibility) */
+*:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
+/* Apple-style sheet/modal with materials & depth */
+.sheet {
+    background-color: white;
+    border-radius: 16px;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    /* Apple: shadow encodes depth - heavier over busy content */
+    box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    will-change: transform, opacity;
+}
+
+/* Apple: modal dimmer */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 40;
+    /* Reduce transparency for accessibility */
+    @media (prefers-reduced-transparency: reduce) {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+/* Apple-style toolbar */
+.toolbar {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    /* Bright top edge = light catching the material */
+    color: var(--gray-900);
+}
+
+/* Type optical sizing - heading vs body */
+.display {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;        /* tight leading for large text */
+    letter-spacing: -0.02em;  /* negative tracking as it grows */
+    font-optical-sizing: auto;
+    /* Heavy weight for presence without taking more space */
+    font-weight: 700;
+}
+
+/* Body text - comfortable leading, near-zero tracking */
+.body-text {
+    font-size: 1rem;
+    line-height: 1.6;         /* loose leading for body */
+    letter-spacing: 0;        /* body near 0 */
+    font-weight: 400;
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+    .sheet { transition: opacity 150ms ease !important; transform: none !important; }
+    .toolbar { background: var(--gray-50); backdrop-filter: none; }
+    .product-button { transition: background-color 0ms, transform 0ms; }
+    .product-card { transition: box-shadow 0ms, transform 0ms; }
+}
