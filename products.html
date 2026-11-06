@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jay's Apparel - Products</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            DEFAULT: '#db2777',
+            100: '#fce7f3',
+            200: '#fbcfe8',
+            300: '#f8a1e3',
+            400: '#f472b6',
+            500: '#ec4899',
+            600: '#db2777',
+            700: '#a8155a',
+            800: '#861243',
+            900: '#7f1d1d',
+          }
+        }
+      }
+    }
+  }
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="text-gray-800">
 
@@ -14,6 +36,7 @@
     <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+
                 <!-- Logo & Business Name -->
                 <div class="flex-shrink-0">
                     <h1 class="text-2xl font-extrabold text-brand-primary tracking-tight">
@@ -23,10 +46,10 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex space-x-8 text-lg font-medium">
-                    <a href="index.html" class="nav-link'>Home</a>
                     <!-- Products is ACTIVE -->
-                    <a href="products.html" class="nav-link active-link'>Products</a>
-                    <a href="contact.html" class="nav-link'>Contact</a>
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link active-link">Products</a>
+                    <a href="contact.html" class="nav-link active-link">Contact</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -43,8 +66,8 @@
         <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center bg-gray-50 border-t">
-                <a href="index.html" class="block py-2 text-base font-medium text-pink-600 border-b border-pink-600">Home</a>
-                <a href="products.html" class="block py-2 text-base font-medium text-brand-600 border-b border-brand-600">Products</a>
+                <a href="index.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Home</a>
+                <a href="products.html" class="block py-2 text-base font-medium text-brand-600 border-b border-brand-600 active-link">Products</a>
                 <a href="contact.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Contact</a>
             </div>
         </div>
@@ -52,6 +75,7 @@
 
     <!-- Main Content Container -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <!-- PRODUCTS PAGE CONTENT -->
         <section id="products-page" class="page-content">
             <div class="py-12">
@@ -63,11 +87,10 @@
 
                     <!-- Product 1: The Essential Tee -->
                     <div class="product-card">
-                        <img src="tee.jpg"
+                        <img src="images/tee.jpg"
                              alt="Product: Essential Tee"
                              class="w-full h-64 object-cover rounded-t-xl"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/bbf7d0/16a34a?text=Loading+Image+Failed'"
-                        />
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/bbf7d0/16a34a?text=Loading+ImageFailed'"/>
                         <div class="p-6">
                             <h3 class="text-2xl font-semibold text-gray-900 mb-2">The Essential Tee</h3>
                             <p class="text-brand-primary font-bold text-xl mb-4">₱99.00</p>
@@ -85,11 +108,10 @@
 
                     <!-- Product 2: The Voyager Denim -->
                     <div class="product-card">
-                        <img src="jeans.jpg"
+                        <img src="images/jeans.jpg"
                              alt="Product: Voyager Denim"
                              class="w-full h-64 object-cover rounded-t-xl"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/a5f3fc/06b6d4?text=Loading+Image+Failed'"
-                        />
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/a5f3fc/06b6d4?text=Loading+ImageFailed'"/>
                         <div class="p-6">
                             <h3 class="text-2xl font-semibold text-gray-900 mb-2">The Voyager Denim</h3>
                             <p class="text-brand-primary font-bold text-xl mb-4">₱199.00</p>
@@ -107,11 +129,10 @@
 
                     <!-- Product 3: The Cloud Knit Sweater -->
                     <div class="product-card">
-                        <img src="knit.jpg"
+                        <img src="images/knit.jpg"
                              alt="Product: Cloud Knit Sweater"
                              class="w-full h-64 object-cover rounded-t-xl"
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0e7ff/4338ca?text=Loading+Image+Failed'"
-                        />
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0e7ff/4338ca?text=Loading+ImageFailed'"/>
                         <div class="p-6">
                             <h3 class="text-2xl font-semibold text-gray-900 mb-2">The Cloud Knit Sweater</h3>
                             <p class="text-brand-primary font-bold text-xl mb-4">₱399.00</p>
@@ -141,74 +162,72 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm">
-            <p>&copy; 2024 Jay's Apparel. All Rights Reserved. | Consciously Crafted.</p>
+            <p>&copy; 2026 Jay's Apparel. All Rights Reserved. | Consciously Crafted.</p>
         </div>
     </footer>
 
     <!-- MODAL STRUCTURE -->
-    <div id="product-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300"
+    <div id="product-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title"
          onclick="closeDetails(event)">
         <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full mx-auto overflow-hidden transform transition-all sm:my-8 sm:align-middle"
              onclick="event.stopPropagation()">
-            <div class="p-6 md:p-8 grid md:grid-cols-2 gap-6">
 
-                <!-- Image Panel -->
-                <div class="w-full">
-                    <img id="modal-img" src="" alt="Product Image" class="w-full h-auto rounded-lg shadow-lg">
+            <!-- Image Panel -->
+            <div class="w-full">
+                <img id="modal-img" src="" alt="Product Image" class="w-full h-auto rounded-lg shadow-lg">
+            </div>
+
+            <!-- Details Panel -->
+            <div>
+                <h3 id="modal-title" class="text-3xl font-extrabold text-gray-900 mb-2"></h3>
+                <p id="modal-price" class="text-3xl font-bold text-brand-primary mb-6"></p>
+
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Product Description</h4>
+                <p id="modal-desc" class="text-gray-600 mb-6 leading-relaxed"></p>
+
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Key Features</h4>
+                <ul class="list-none space-y-2 text-gray-700 mb-8">
+                    <li id="modal-feature-1" class="flex items-center">
+                        <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>100% Sustainable Material</span>
+                    </li>
+                    <li id="modal-feature-2" class="flex items-center">
+                        <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Ethically Sourced</span>
+                    </li>
+                    <li id="modal-feature-3" class="flex items-center">
+                        <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Free Returns</span>
+                    </li>
+                </ul>
+
+                <!-- Cart Notification -->
+                <div id="cart-notification" class="hidden p-3 mb-4 text-sm font-medium text-green-800 bg-green-100 rounded-lg border border-green-200" role="alert">
+                    <span class="font-bold">Success!</span> Item added to your cart.
                 </div>
 
-                <!-- Details Panel -->
-                <div>
-                    <h3 id="modal-title" class="text-3xl font-extrabold text-gray-900 mb-2"></h3>
-                    <p id="modal-price" class="text-3xl font-bold text-brand-primary mb-6"></p>
-
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Product Description</h4>
-                    <p id="modal-desc" class="text-gray-600 mb-6 leading-relaxed"></p>
-
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Key Features</h4>
-                    <ul class="list-none space-y-2 text-gray-700 mb-8">
-                        <li id="modal-feature-1" class="flex items-center">
-                            <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>100% Sustainable Material</span>
-                        </li>
-                        <li id="modal-feature-2" class="flex items-center">
-                            <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Ethically Sourced</span>
-                        </li>
-                        <li id="modal-feature-3" class="flex items-center">
-                            <svg class="w-5 h-5 text-brand-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Free Returns</span>
-                        </li>
-                    </ul>
-
-                    <!-- Cart Notification -->
-                    <div id="cart-notification" class="hidden p-3 mb-4 text-sm font-medium text-green-800 bg-green-100 rounded-lg border border-green-200" role="alert">
-                        <span class="font-bold">Success!</span> Item added to your cart.
-                    </div>
-
-                    <button id="add-to-cart-btn"
-                            onclick="addToCart(event)"
-                            class="w-full px-4 py-3 text-lg font-medium text-white bg-brand-primary rounded-lg shadow-md hover:bg-brand-primary-dark focus:outline-none focus:ring-4 focus:ring-brand-primary-light focus:ring-opacity-50 transition duration-150 transform hover:scale-[1.005]">
-                        Add to Cart
-                    </button>
-                </div>
+                <button id="add-to-cart-btn"
+                        onclick="addToCart(event)"
+                        class="w-full px-4 py-3 text-lg font-medium text-white bg-brand-primary rounded-lg shadow-md hover:bg-brand-primary-dark focus:outline-none focus:ring-4 focus:ring-brand-primary-light focus:ring-opacity-50 transition duration-150 transform hover:scale-[1.005]">
+                    Add to Cart
+                </button>
             </div>
         </div>
-
-        <!-- Close Button -->
-        <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
-                onclick="closeDetails()">
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
     </div>
+
+    <!-- Close Button -->
+    <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
+            onclick="closeModal()" aria-label="Close">
+        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
 
     <script>
         // Simple script to toggle the mobile menu
@@ -227,21 +246,21 @@
                 title: 'The Essential Tee',
                 price: '₱99.00',
                 desc: 'Crafted from 100% organic Pima cotton, this tee offers a luxurious feel and a perfect, relaxed fit. It is designed for longevity and minimal environmental impact, making it a cornerstone of your conscious wardrobe.',
-                imgSrc: 'tee.jpg',
+                imgSrc: 'images/tee.jpg',
                 features: ['100% Organic Pima Cotton', 'Relaxed Fit', 'Five Earth Tones Available']
             },
             'denim': {
                 title: 'The Voyager Denim',
                 price: '₱199.00',
                 desc: 'Our flagship denim, made with 40% recycled cotton. Features a relaxed straight cut for all-day comfort and superior durability. It uses minimal water during production and is dyed using sustainable processes.',
-                imgSrc: 'jeans.jpg',
+                imgSrc: 'images/jeans.jpg',
                 features: ['40% Recycled Cotton Blend', 'Relaxed Straight Cut', 'Low Water Dye Process']
             },
             'sweater': {
                 title: 'The Cloud Knit Sweater',
                 price: '₱399.00',
                 desc: 'Experience the ultimate softness. This ethically sourced merino wool blend is light, warm, and perfect for layering. The cloud knit texture provides maximum comfort and breathability for year-round wear.',
-                imgSrc: 'knit.jpg',
+                imgSrc: 'images/knit.jpg',
                 features: ['Ethically Sourced Merino Wool', 'Lightweight & Breathable', 'Perfect for Layering']
             }
         };
@@ -294,7 +313,11 @@
             }
         }
 
-        /** Handles the "Add to Cart" action and shows a success notification. */
+function closeModal() {
+    modal.classList.add('hidden');
+}
+
+/** Handles the "Add to Cart" action and shows a success notification. */
         function addToCart(event) {
             // Stop click from bubbling up and potentially closing the modal (since the backdrop uses closeDetails)
             event.stopPropagation();
@@ -303,7 +326,7 @@
             const button = document.getElementById('add-to-cart-btn');
 
             // 1. Display success message with the current product title
-            notification.innerHTML = `<span class="font-bold">Success!</span> ${currentProductTitle} added to your cart.`;
+            notification.innerHTML = '<span class="font-bold">Success!</span> ' + currentProductTitle + ' added to your cart.';
             notification.classList.remove('hidden');
 
             // 2. Disable button temporarily and change styling
@@ -322,6 +345,54 @@
             }, 3000);
         }
 
+        // --- MODAL FOCUS TRAP ---
+        const focusableElements = modal.querySelectorAll(
+            'a[href], button, [contenteditable], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstFocusableElement = focusableElements[0];
+        const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+        // Track the element that had focus before the modal opened
+        let previouslyFocused = null;
+
+        // Open modal and trap focus
+        function openModalWithFocus(productId) {
+            previouslyFocused = document.activeElement;
+            showDetails(productId);
+            modal.classList.remove('hidden');
+            // Move focus to the close button inside the modal
+            const closeBtn = modal.querySelector('button[type="button"]');
+            if (closeBtn) {
+                closeBtn.focus();
+            }
+        }
+
+        // Close modal and return focus to the triggering button
+        function closeModalWithFocus() {
+            modal.classList.add('hidden');
+            if (previouslyFocused && previouslyFocused.focus) {
+                previouslyFocused.focus();
+            }
+            previouslyFocused = null;
+        }
+
+        // Trap Tab key inside the modal
+        modal.addEventListener('keydown', function(event) {
+            if (event.key === 'Tab') {
+                if (event.shiftKey) {
+                    if (document.activeElement === firstFocusableElement) {
+                        event.preventDefault();
+                        lastFocusableElement.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusableElement) {
+                        event.preventDefault();
+                        firstFocusableElement.focus();
+                    }
+                }
+            }
+        });
+
         // Close modal on escape key press
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
@@ -330,4 +401,4 @@
         });
     </script>
 </body>
-</html>
+</html
