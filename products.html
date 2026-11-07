@@ -168,17 +168,17 @@
 
     <!-- MODAL STRUCTURE -->
     <div id="product-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title"
-         onclick="closeDetails(event)">
-        <!-- Close Button -->
-        <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
-                onclick="closeModal()" aria-label="Close">
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
+             onclick="closeDetails(event)">
+            <!-- Close Button -->
+            <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
+                    onclick="closeModal()" aria-label="Close">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
 
-        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full mx-auto overflow-hidden transform transition-all sm:my-8 sm:align-middle"
-             onclick="event.stopPropagation()">
+            <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full mx-auto overflow-hidden transform transition-all sm:my-8 sm:align-middle relative"
+                 onclick="event.stopPropagation()">
 
             <!-- Image Panel -->
             <div class="w-full">
