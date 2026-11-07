@@ -4,12 +4,6 @@
 
 Jay's Apparel is a static, client-side e-commerce website selling sustainable clothing. Built with pure HTML5, Tailwind CSS via CDN, and vanilla JavaScript — **no build step required**.
 
-## 
-
-- **Home**: `http://localhost:8080/index.html`
-- **Products**: `http://localhost:8080/products.html`
-- **Contact**: `http://localhost:8080/contact.html`
-
 ## Design Philosophy
 
 This website combines three design approaches:
