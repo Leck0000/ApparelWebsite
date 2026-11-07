@@ -33,7 +33,7 @@
 <body class="text-gray-800">
 
     <!-- Header & Navigation (Fixed at Top) -->
-    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-10">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
 
@@ -46,7 +46,6 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex space-x-8 text-lg font-medium">
-                    <!-- Products is ACTIVE -->
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="products.html" class="nav-link active-link">Products</a>
                     <a href="contact.html" class="nav-link active-link">Contact</a>
@@ -64,8 +63,8 @@
         </div>
 
         <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center bg-gray-50 border-t">
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-50 border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
                 <a href="index.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Home</a>
                 <a href="products.html" class="block py-2 text-base font-medium text-brand-600 border-b border-brand-600">Products</a>
                 <a href="contact.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Contact</a>
@@ -98,8 +97,7 @@
                                 Crafted from 100% organic Pima cotton, this tee offers a luxurious feel and a perfect, relaxed fit. Available in five earth tones.
                             </p>
                             <div class="product-actions mt-auto">
-                                <button class="product-button"
-                                        onclick="showDetails('tee')">
+                                <button class="product-button" onclick="showDetails('tee')">
                                     View Details
                                 </button>
                             </div>
@@ -119,8 +117,7 @@
                                 Our flagship denim, made with 40% recycled cotton. Features a relaxed straight cut for all-day comfort and durability.
                             </p>
                             <div class="product-actions mt-auto">
-                                <button class="product-button"
-                                        onclick="showDetails('denim')">
+                                <button class="product-button" onclick="showDetails('denim')">
                                     View Details
                                 </button>
                             </div>
@@ -140,8 +137,7 @@
                                 Experience the ultimate softness. This ethically sourced merino wool blend is light, warm, and perfect for layering.
                             </p>
                             <div class="product-actions mt-auto">
-                                <button class="product-button"
-                                        onclick="showDetails('sweater')">
+                                <button class="product-button" onclick="showDetails('sweater')">
                                     View Details
                                 </button>
                             </div>
@@ -168,25 +164,20 @@
 
     <!-- MODAL STRUCTURE -->
     <div id="product-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title"
-             onclick="closeDetails(event)">
-            <!-- Close Button -->
-            <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
-                    onclick="closeModal()" aria-label="Close">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+         onclick="closeDetails(event)">
+        <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
+                onclick="closeModal()" aria-label="Close">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
 
-            <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full mx-auto overflow-hidden transform transition-all sm:my-8 sm:align-middle relative"
-                 onclick="event.stopPropagation()">
-
-            <!-- Image Panel -->
+        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full mx-auto overflow-hidden transform transition-all sm:my-8 sm:align-middle relative"
+             onclick="event.stopPropagation()">
             <div class="w-full">
                 <img id="modal-img" src="" alt="Product Image" class="w-full h-auto rounded-lg shadow-lg">
             </div>
-
-            <!-- Details Panel -->
-            <div>
+            <div class="p-6 md:p-8">
                 <h3 id="modal-title" class="text-3xl font-extrabold text-gray-900 mb-2"></h3>
                 <p id="modal-price" class="text-3xl font-bold text-brand-primary mb-6"></p>
 
@@ -215,7 +206,6 @@
                     </li>
                 </ul>
 
-                <!-- Cart Notification -->
                 <div id="cart-notification" class="hidden p-3 mb-4 text-sm font-medium text-green-800 bg-green-100 rounded-lg border border-green-200" role="alert">
                     <span class="font-bold">Success!</span> Item added to your cart.
                 </div>
