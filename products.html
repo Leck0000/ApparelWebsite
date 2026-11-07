@@ -67,7 +67,7 @@
         <div id="mobile-menu" class="hidden md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center bg-gray-50 border-t">
                 <a href="index.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Home</a>
-                <a href="products.html" class="block py-2 text-base font-medium text-brand-600 border-b border-brand-600 active-link">Products</a>
+                <a href="products.html" class="block py-2 text-base font-medium text-brand-600 border-b border-brand-600">Products</a>
                 <a href="contact.html" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-200 rounded-md">Contact</a>
             </div>
         </div>
@@ -169,6 +169,14 @@
     <!-- MODAL STRUCTURE -->
     <div id="product-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title"
          onclick="closeDetails(event)">
+        <!-- Close Button -->
+        <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
+                onclick="closeModal()" aria-label="Close">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
         <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full mx-auto overflow-hidden transform transition-all sm:my-8 sm:align-middle"
              onclick="event.stopPropagation()">
 
@@ -221,14 +229,6 @@
         </div>
     </div>
 
-    <!-- Close Button -->
-    <button type="button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition"
-            onclick="closeModal()" aria-label="Close">
-        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-    </button>
-
     <script>
         // Simple script to toggle the mobile menu
         function toggleMobileMenu() {
@@ -238,9 +238,9 @@
 
         // --- MODAL LOGIC ---
         const modal = document.getElementById('product-modal');
-        let currentProductTitle = ''; // Stores the title of the product currently in the modal
+        let currentProductTitle = '';
 
-        // Define product data (simulated backend data)
+        // Product data
         const productData = {
             'tee': {
                 title: 'The Essential Tee',
@@ -265,35 +265,28 @@
             }
         };
 
-        /** Populates and displays the modal with specific product details.
-         * @param {string} productId - The key for the product data ('tee', 'denim', 'sweater').
-         */
         function showDetails(productId) {
             const product = productData[productId];
             if (!product) return;
 
-            // Populate Modal Content
             document.getElementById('modal-img').src = product.imgSrc;
             document.getElementById('modal-img').alt = product.title + ' Image';
             document.getElementById('modal-title').textContent = product.title;
-            currentProductTitle = product.title; // Store the title for the cart function
+            currentProductTitle = product.title;
             document.getElementById('modal-price').textContent = product.price;
             document.getElementById('modal-desc').textContent = product.desc;
 
-            // Populate Features
             for (let i = 0; i < 3; i++) {
-                const featureElement = document.getElementById(`modal-feature-${i + 1}`);
+                const featureElement = document.getElementById('modal-feature-' + (i + 1));
                 if (featureElement) {
-                     // Keep the SVG icon, just replace the text node
                     const icon = featureElement.querySelector('svg');
-                    featureElement.textContent = product.features[i] || ''; // Set text
+                    featureElement.textContent = product.features[i] || '';
                     if (icon) {
-                        featureElement.prepend(icon); // Put the icon back
+                        featureElement.prepend(icon);
                     }
                 }
             }
 
-            // Ensure the notification is hidden when opening a new product
             document.getElementById('cart-notification').classList.add('hidden');
             const cartButton = document.getElementById('add-to-cart-btn');
             cartButton.disabled = false;
@@ -301,42 +294,34 @@
             cartButton.classList.add('bg-brand-primary', 'hover:bg-brand-primary-dark');
             cartButton.classList.remove('bg-green-600');
 
-            // Show the modal
             modal.classList.remove('hidden');
         }
 
-        /** Hides the product details modal. */
         function closeDetails(event) {
-            // Check if click was on the backdrop (not on the modal content)
             if (event.target === event.currentTarget) {
                 modal.classList.add('hidden');
             }
         }
 
-function closeModal() {
-    modal.classList.add('hidden');
-}
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
 
-/** Handles the "Add to Cart" action and shows a success notification. */
         function addToCart(event) {
-            // Stop click from bubbling up and potentially closing the modal (since the backdrop uses closeDetails)
             event.stopPropagation();
 
             const notification = document.getElementById('cart-notification');
             const button = document.getElementById('add-to-cart-btn');
 
-            // 1. Display success message with the current product title
             notification.innerHTML = '<span class="font-bold">Success!</span> ' + currentProductTitle + ' added to your cart.';
             notification.classList.remove('hidden');
 
-            // 2. Disable button temporarily and change styling
             button.disabled = true;
             button.textContent = 'Added!';
             button.classList.remove('bg-brand-primary', 'hover:bg-brand-primary-dark');
             button.classList.add('bg-green-600');
 
-            // 3. Reset state after 3 seconds
-            setTimeout(() => {
+            setTimeout(function() {
                 notification.classList.add('hidden');
                 button.disabled = false;
                 button.textContent = 'Add to Cart';
@@ -344,54 +329,6 @@ function closeModal() {
                 button.classList.remove('bg-green-600');
             }, 3000);
         }
-
-        // --- MODAL FOCUS TRAP ---
-        const focusableElements = modal.querySelectorAll(
-            'a[href], button, [contenteditable], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        const firstFocusableElement = focusableElements[0];
-        const lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-        // Track the element that had focus before the modal opened
-        let previouslyFocused = null;
-
-        // Open modal and trap focus
-        function openModalWithFocus(productId) {
-            previouslyFocused = document.activeElement;
-            showDetails(productId);
-            modal.classList.remove('hidden');
-            // Move focus to the close button inside the modal
-            const closeBtn = modal.querySelector('button[type="button"]');
-            if (closeBtn) {
-                closeBtn.focus();
-            }
-        }
-
-        // Close modal and return focus to the triggering button
-        function closeModalWithFocus() {
-            modal.classList.add('hidden');
-            if (previouslyFocused && previouslyFocused.focus) {
-                previouslyFocused.focus();
-            }
-            previouslyFocused = null;
-        }
-
-        // Trap Tab key inside the modal
-        modal.addEventListener('keydown', function(event) {
-            if (event.key === 'Tab') {
-                if (event.shiftKey) {
-                    if (document.activeElement === firstFocusableElement) {
-                        event.preventDefault();
-                        lastFocusableElement.focus();
-                    }
-                } else {
-                    if (document.activeElement === lastFocusableElement) {
-                        event.preventDefault();
-                        firstFocusableElement.focus();
-                    }
-                }
-            }
-        });
 
         // Close modal on escape key press
         document.addEventListener('keydown', function(event) {
@@ -401,4 +338,4 @@ function closeModal() {
         });
     </script>
 </body>
-</html
+</html>
